@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiced Blend | 10% ABV Rum Alternative - Decem</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="announcement-bar">
+        <p>Use code <strong>DECEM10</strong> for <strong>£10 OFF</strong> your first order</p>
+        <div class="announcement-close" onclick="announcementClose()">
+            <img src="https://decemdrinks.com/cdn/shop/t/20/assets/close-white.png?v=177113018988537382541676011158"
+                alt="">
+        </div>
+    </div>
+
+    <div class="site-header">
+        <div class="cell">
+            <a href="#">SHOP</a>
+            <a href="#">STORY</a>
+        </div>
+        <div class="logo">
+            DECEM
+        </div>
+        <div class="cell">
+            <a href="#">BASKET<i>(0)</i></a>
+        </div>
+    </div>
+
+    <div class="product-detail">
+        <div class="product-gallery">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="https://decemdrinks.com/cdn/shop/products/SpicedBlend_Serve_1024x1024.png?v=1659602678"
+                        alt="">
+                </div>
+                <div class="carousel-item carousel-item-selected">
+                    <img src="https://decemdrinks.com/cdn/shop/products/SpicedBlend_Front_1024x1024.png?v=1659602678"
+                        alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://decemdrinks.com/cdn/shop/products/SpicedBlend_Back_1024x1024.png?v=1659602678"
+                        alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="product-form">
+            <nav class="product-form-nav">
+                <ul>
+                    <li><a href="#">london dry</a></li>
+                    <li class="active"><a href="#">spiced Blend</a></li>
+                    <li><a href="#">aperitif</a></li>
+                    <li><a href="#">trio</a></li>
+                </ul>
+            </nav>
+            <br>
+            <hr>
+            <h4 class="product-form-title">
+                <strong>spiced blend</strong>
+                <br>
+                <em>made with</em>
+                <span style="font-size: 170%; font-weight: 300;">Caribbean Rum</span>
+            </h4>
+            <div class="product-details">
+                <div>
+                    Blended <em>in</em> England
+                </div>
+                <div>
+                    10%vol / 700ml
+                </div>
+            </div>
+
+            <button class="add-to-cart-button">
+                £29.95 — Add to Bag
+            </button>
+
+            <div class="single-product_free-delivery">
+                FREE UK DELIVERY
+            </div>
+
+            <br>
+            <hr>
+
+            <div class="product-accordions">
+                <ul class="accrodion">
+                    <li>
+                        <input type="radio" id="first" name="accordion" checked>
+                        <label for="first" class="accordion-label">Description</label>
+                        <div class="accordion-content">
+                            <p>
+                                Blending a duo of light and white Caribbean rums from Martinique and Dominican Republic
+                                as the smooth base. Spices are then added and the mix is allowed to steep for 2 days to
+                                draw out all of the flavour before being filtered and masterfully blended with natural
+                                distillates to 10%ABV. The result is a buttery, caramel-forward, savoury and spicy light
+                                spirit with a big impact both on the nose and the taste buds.
+                            </p>
+                        </div>
+                    </li>
+                    <br>
+                    <hr>
+                    <li>
+                        <input type="radio" id="second" name="accordion">
+                        <label for="second" class="accordion-label">Taste</label>
+                        <div class="accordion-content">
+                            <p>
+                                Deep bonfire toffee, warming savoury spice, rounded honey sweetness, buttery caramel
+                                throughout with a hint of tropical fruit.
+                            </p>
+                        </div>
+                    </li>
+                    <br>
+                    <hr>
+                    <li>
+                        <input type="radio" id="third" name="accordion">
+                        <label for="third" class="accordion-label">Serve</label>
+                        <div class="accordion-content">
+                            <p>
+                                Simply serve 50ml chilled over ice with 150ml premium Ginger Ale and a lime wedge. 2.3%
+                                ABV.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const announcementBar = document.querySelector('.announcement-bar');
+    function announcementClose() {
+        announcementBar.classList.add('invisible');
+    }
+
+    const carousel = document.querySelector('.carousel');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const carouselButtonHtml = Array.from(carouselItems, () => {
+        return `<span class="carousel-button"></span>`
+    })
+    carousel.insertAdjacentHTML('beforeend', `
+        <div class="carousel-nav">
+            ${carouselButtonHtml.join('')}
+        </div>
+    `)
+
+    carouselButtons = document.querySelectorAll('.carousel-button');
+    carouselButtons.forEach((button, i) => {
+        button.addEventListener('click', () => {
+            carouselItems.forEach(item => item.classList.remove('carousel-item-selected'))
+            carouselButtons.forEach(button => button.classList.remove('carousel-button-selected'));
+            carouselItems[i].classList.add('carousel-item-selected');
+            button.classList.add('carousel-button-selected')
+        })
+    })
+</script>
+
+</html>
